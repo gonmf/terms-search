@@ -1,8 +1,6 @@
 import { Chart } from "react-charts"
 
-export default function TrendChart(props) {
-  const trendData = props.trendData.map(datum => [new Date(parseInt(datum.time) * 1000), datum.value[0]])
-
+export default function TrendChart({ trendData }) {
   const data = React.useMemo(
     () => [
       {
@@ -14,7 +12,7 @@ export default function TrendChart(props) {
 
   const axes = React.useMemo(
     () => [
-      { primary: true, type: "time", position: "bottom" },
+      { primary: true, type: "utc", position: "bottom" },
       { type: "linear", position: "left" }
     ],
     []

@@ -58,7 +58,7 @@ export default class extends Component {
                     errorMsg: term.err
                   });
                 } else{
-                  term.data = data.default.timelineData;
+                  term.data = data.default.timelineData.map(datum => [parseInt(datum.time) * 1000, datum.value[0]]);
 
                   this.setState({
                     busy: false,
